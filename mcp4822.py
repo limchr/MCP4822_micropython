@@ -7,15 +7,13 @@ class MCP4822:
 	Utility class for operating the MCP4822 Digital Analog Converter in Micropython.
 	"""
 
-	def __init__(self,spi_channel,sck_pin,mosi_pin,cs_pin,ldac_pin,resolution=12):
+	def __init__(self,spi,cs_pin,ldac_pin,resolution=12):
 		"""
 		Just sets the passed variables to member variables.
 		"""
-		self.sck = Pin(sck_pin,Pin.OUT)
-		self.mosi = Pin(mosi_pin,Pin.OUT)
+		self.spi = spi
 		self.cs = Pin(cs_pin,Pin.OUT)
 		self.ldac = Pin(ldac_pin,Pin.OUT)
-		self.spi = SPI(spi_channel, baudrate=1000000, polarity=0, phase=0, bits=16, firstbit=SPI.MSB, sck=self.sck, mosi=self.mosi, miso=None)
 		self.resolution = resolution
 
 	def _get_channelbit_from_id(self,ident):
