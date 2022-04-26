@@ -1,10 +1,3 @@
-# MCP4822_micropython
-Utility class for operating the MCP4822 Digital Analog Converter (and also other versions MCP48x2) in Micropython.
-
-## Basic usage
-
-```python
-
 from mcp4822 import MCP4822
 
 spi_channel = 2
@@ -27,6 +20,3 @@ mcp.write_voltage('A', 1.89)
 
 # disable channel B, since we only need channel one
 mcp.deactivate_channel('B')
-
-
-```
